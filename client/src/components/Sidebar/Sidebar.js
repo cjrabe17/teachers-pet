@@ -6,27 +6,18 @@ const Sidebar = () => (
     <div className="sidebar-sticky">
       <ul className="nav flex-column">
         <li className="nav-item">
-          <a className="nav-link active" href="#">
-            <span data-feather="home"></span>
-            Gradebook <span className="sr-only">(current)</span>
+          <a className="nav-link" href="/">
+            Gradebook
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            <span data-feather="file"></span>
+          <a className="nav-link" href="/attendance">
             Attendance
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            <span data-feather="shopping-cart"></span>
+          <a className="nav-link" href="/behavior">
             Behavior
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            <span data-feather="users"></span>
-            Seating Chart
           </a>
         </li>
       </ul>
