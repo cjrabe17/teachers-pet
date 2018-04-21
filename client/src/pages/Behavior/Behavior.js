@@ -3,7 +3,6 @@ import Wrapper from "../../components/Wrapper";
 import Nav from "../../components/Nav";
 import Sidebar from "../../components/Sidebar";
 import BehaviorDetail from "../../components/BehaviorDetail";
-import { Link } from "react-router-dom";
 
 class Behavior extends Component {
 // stateful stuff
