@@ -1,4 +1,4 @@
-# Create React Express App
+# Teacher's Pet
 
 ## About This Boilerplate
 

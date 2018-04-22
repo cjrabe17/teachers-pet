@@ -26,6 +26,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.STRING
+    },
+    behaviorScore: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    behaviorNotes: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
   });
   return Student;

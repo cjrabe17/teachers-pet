@@ -11,31 +11,6 @@ const Nav = () => (
     </ul>
     <ul className="navbar-nav px-3">
       <li className="nav-item text-nowrap">
-        <a className="nav-link" href="/">Period 2</a>
-      </li>
-    </ul>
-    <ul className="navbar-nav px-3">
-      <li className="nav-item text-nowrap">
-        <a className="nav-link" href="/">Period 3</a>
-      </li>
-    </ul>
-    <ul className="navbar-nav px-3">
-      <li className="nav-item text-nowrap">
-        <a className="nav-link" href="/">Period 4</a>
-      </li>
-    </ul>
-    <ul className="navbar-nav px-3">
-      <li className="nav-item text-nowrap">
-        <a className="nav-link" href="/">Period 5</a>
-      </li>
-    </ul>
-    <ul className="navbar-nav px-3">
-      <li className="nav-item text-nowrap">
-        <a className="nav-link" href="/">Period 6</a>
-      </li>
-    </ul>
-    <ul className="navbar-nav px-3">
-      <li className="nav-item text-nowrap">
         <a className="nav-link" href="/"><i className="fas fa-cog fa-lg"></i></a>
       </li>
     </ul>
