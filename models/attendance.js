@@ -1,7 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   const Attendance = sequelize.define("Attendance", {
-    // studentId
-    // classId
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,

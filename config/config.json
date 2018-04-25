@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "sourworms1",
-    "database": "teachers-pet",
+    "database": "teachers_pet",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

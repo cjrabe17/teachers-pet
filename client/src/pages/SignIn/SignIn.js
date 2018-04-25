@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import Hero from "../../components/Hero";
+import Login from "../../components/Login";
 import Logo from "../../components/Logo";
 import TopNav from "../../components/TopNav";
 
-class Home extends Component {
+class SignIn extends Component {
   render() {
     return (
       <div>
         <Logo />
         <TopNav />
-        <Hero />
+        <Login />
       </div>
     );
   }
 }
 
-export default Home;
+export default SignIn;

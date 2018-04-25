@@ -1,7 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   const Assignment = sequelize.define("Assignment", {
-    // studentId
-    // classId
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -46,5 +44,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   });
+
+  Assignment.associate = function (models) {
+    models.Assignment.belongsToMany(models.Student, {
+      through: "AssignmentStudent"
+      }
+    );
+    // models.Assignment.belongsToMany(models.Period, {
+    //   through: "AssignmentPeriod"
+    //   }
+    // );
+  };
   return Assignment;
 }

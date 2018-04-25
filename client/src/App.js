@@ -1,21 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import Grades from "./pages/Grades";
-import Attendance from "./pages/Attendance";
-import Behavior from "./pages/Behavior";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 import NoMatch from "./pages/NoMatch";
 
 const App = props => (
-// stateful stuff here?
-
   <Router>
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/gradebook" component={Grades} />
-        <Route exact path="/attendance" component={Attendance} />
-        <Route exact path="/behavior" component={Behavior} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
         <Route component={NoMatch} />
       </Switch>
     </div>

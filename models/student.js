@@ -26,15 +26,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.STRING
-    },
-    behaviorScore: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    behaviorNotes: {
-      type: DataTypes.TEXT,
-      allowNull: true
     }
   });
+  Student.associate = function (models) {
+    models.Student.belongsToMany(models.Assignment, {
+      through: "AssignmentStudent"
+    });
+    // models.Student.belongsToMany(models.Period, {
+    //   through: 
+    // });
+    // models.Student.belongsToMany(models.Teacher, {
+    //   through: 
+    // });
+  };
   return Student;
 }

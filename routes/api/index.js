@@ -1,8 +1,11 @@
 const router = require("express").Router();
-const bookRoutes = require("./books");
+const assignmentRoutes = require("./assignments");
+const studentRoutes = require("./students")
 
-// Book routes
-router.use("/books", bookRoutes);
+// Assignment routes
+router.use("/assignments", assignmentRoutes);
+
+
 router.use('/students', studentRoutes);
 
 module.exports = router;
