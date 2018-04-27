@@ -65,7 +65,7 @@ export default class SignupForm extends Component {
             disabled={!this.validateForm()}
             type="submit"
           >
-            Login
+            Register
           </Button>
           <p>Already a Member? <a href="/signin">Log In Now!</a></p>
         </form>

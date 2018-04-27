@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
+import "./TopNav.css";
 
 export default class TopNav extends Component {
   render() {

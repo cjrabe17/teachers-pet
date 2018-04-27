@@ -5,6 +5,10 @@
 
   .Login form {
     margin: 0 auto;
-    max-width: 320px;
+    max-width: 450px;
+  }
+
+  p {
+    padding: 10px 0;
   }
 }

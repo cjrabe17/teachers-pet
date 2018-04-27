@@ -1,8 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const session = require("express-session");
-const passport = require("./config/passport");
 const routes = require('./routes');
+
+// NPMs for authentication
+const jwt = require('express-jwt');
+const jwks = require('jwks-rsa');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
@@ -12,11 +15,22 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("client/build"));
-app.use(session( { secret: "keyboard cat", resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(routes);
+
+const authCheck = jwt({
+  secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        // YOUR-AUTH0-DOMAIN name e.g prosper.auth0.com
+        jwksUri: "https://{YOUR-AUTH0-DOMAIN}/.well-known/jwks.json"
+    }),
+    // This is the identifier we set when we created the API
+    audience: '{YOUR-API-AUDIENCE-ATTRIBUTE}',
+    issuer: '{YOUR-AUTH0-DOMAIN}',
+    algorithms: ['RS256']
+});
 
 // Start the API server
 db.sequelize.sync({ force: false }).then(function() {

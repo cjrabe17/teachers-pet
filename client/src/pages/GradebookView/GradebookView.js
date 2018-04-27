@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import Hero from "../../components/Hero";
 import Logo from "../../components/Logo";
 import TopNav from "../../components/TopNav";
+import GradeDetail from "../../components/GradeDetail";
 
-class Home extends Component {
+class GradebookView extends Component {
   render() {
     return (
       <div>
         <TopNav />
-        <Hero />
+        <GradeDetail />
         <Logo />
       </div>
     );
   }
 }
 
-export default Home;
+export default GradebookView;
