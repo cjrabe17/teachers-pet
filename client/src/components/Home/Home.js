@@ -24,6 +24,7 @@ class Home extends Component {
           <div>
             <TopNav {...myProps} />
             <GradeDetail />
+            <Logo />
           </div>
         }
         {

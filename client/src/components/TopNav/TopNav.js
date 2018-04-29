@@ -26,32 +26,31 @@ class TopNav extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-          <NavDropdown eventKey={1} title="About" id="basic-nav-dropdown">
+            <NavDropdown eventKey={1} title="About" id="basic-nav-dropdown">
               <MenuItem eventKey={1.1}>Why Teacher's Pet?</MenuItem>
               <MenuItem eventKey={1.2}>Pricing</MenuItem>
               <MenuItem eventKey={1.3}>Contact Us</MenuItem>
             </NavDropdown>
           </Nav>
-          <Nav pullRight>
-            {
-              !isAuthenticated() &&
+          {
+            !isAuthenticated() &&
+            <Nav pullRight>
               <NavItem eventKey={2} onClick={this.login}>
                 Log In
               </NavItem>
-            }
-            {
-              !isAuthenticated() &&
               <NavItem eventKey={3} onClick={this.login}>
                 Sign Up
               </NavItem>
-            }
-            {
-              isAuthenticated() &&
+            </Nav>
+          }
+          {
+            isAuthenticated() &&
+            <Nav pullRight>
               <NavItem eventKey={2} onClick={this.logout}>
                 Log Out
               </NavItem>
-            }
-          </Nav>
+            </Nav>
+          }
         </Navbar.Collapse>
       </Navbar>
     );
