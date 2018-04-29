@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import App from '../../App';
+import TopNav from '../TopNav';
+import GradeDetail from '../GradeDetail';
+import Logo from '../Logo';
+import Hero from '../Hero';
 
 class Home extends Component {
   // calls the login method in authentication service
@@ -13,37 +16,22 @@ class Home extends Component {
   render() {
     // calls the isAuthenticated method in authentication service
     const { isAuthenticated } = this.props.auth;
+    const myProps = this.props;
     return (
       <div>
         {
           isAuthenticated() &&
-          <div className="container column">
-            <h5>
-              You are logged in!{' '}
-              <a
-                style={{ cursor: 'pointer' }}
-                onClick={this.logout}
-              >
-                Log Out
-              </a>.
-            </h5>
-            <App />
+          <div>
+            <TopNav {...myProps} />
+            <GradeDetail />
           </div>
         }
         {
           !isAuthenticated() && (
-            <div className="container column">
-              <h5>ReactiveSearch Auth0 Example</h5>
-              <h5>
-                You are not logged in! Please{' '}
-                <a
-                  style={{ cursor: 'pointer' }}
-                  onClick={this.login}
-                >
-                  Log In
-                </a>
-                {' '}to continue.
-              </h5>
+            <div>
+              <TopNav {...myProps}/>
+              <Hero />
+              <Logo />
             </div>
           )
         }

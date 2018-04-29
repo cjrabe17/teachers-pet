@@ -3,8 +3,19 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 import "./TopNav.css";
 
-export default class TopNav extends Component {
-  render() {
+class TopNav extends Component {
+    login = () => {
+      console.log("Logging in");
+      this.props.auth.login();
+    }
+    // calls the logout method in authentication service
+    logout = () => {
+      console.log("Logging out");
+      this.props.auth.logout();
+    }
+  
+    render() {
+    const { isAuthenticated } = this.props.auth;
     return (
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
@@ -15,24 +26,36 @@ export default class TopNav extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="/signin">
-              Log In
-            </NavItem>
-            <NavItem eventKey={2} href="/signup">
-              Sign Up
-            </NavItem>
+          <NavDropdown eventKey={1} title="About" id="basic-nav-dropdown">
+              <MenuItem eventKey={1.1}>Why Teacher's Pet?</MenuItem>
+              <MenuItem eventKey={1.2}>Pricing</MenuItem>
+              <MenuItem eventKey={1.3}>Contact Us</MenuItem>
+            </NavDropdown>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} href="/contact">
-              Contact Us
-            </NavItem>
-            <NavDropdown eventKey={3} title="About" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>About Us</MenuItem>
-              <MenuItem eventKey={3.2}>Pricing</MenuItem>
-            </NavDropdown>
+            {
+              !isAuthenticated() &&
+              <NavItem eventKey={2} onClick={this.login}>
+                Log In
+              </NavItem>
+            }
+            {
+              !isAuthenticated() &&
+              <NavItem eventKey={3} onClick={this.login}>
+                Sign Up
+              </NavItem>
+            }
+            {
+              isAuthenticated() &&
+              <NavItem eventKey={2} onClick={this.logout}>
+                Log Out
+              </NavItem>
+            }
           </Nav>
         </Navbar.Collapse>
       </Navbar>
     );
   }
 }
+
+export default TopNav;

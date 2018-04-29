@@ -13,7 +13,7 @@ const handleAuthentication = (nextState, replace) => {
   }
 }
 
-const App = () => (
+const Routes = () => (
   <Router history={history} component={Home}>
     <div>
       <Switch>
@@ -28,4 +28,4 @@ const App = () => (
   </Router>
 );
 
-export default App;
+export default Routes;
