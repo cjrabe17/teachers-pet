@@ -4,17 +4,17 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 import "./TopNav.css";
 
 class TopNav extends Component {
-    login = () => {
-      console.log("Logging in");
-      this.props.auth.login();
-    }
-    // calls the logout method in authentication service
-    logout = () => {
-      console.log("Logging out");
-      this.props.auth.logout();
-    }
+  login = () => {
+    console.log("Logging in");
+    this.props.auth.login();
+  }
+  // calls the logout method in authentication service
+  logout = () => {
+    console.log("Logging out");
+    this.props.auth.logout();
+  }
   
-    render() {
+  render() {
     const { isAuthenticated } = this.props.auth;
     return (
       <Navbar inverse collapseOnSelect>

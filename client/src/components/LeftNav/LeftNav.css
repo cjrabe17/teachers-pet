@@ -1,0 +1,16 @@
+.nav-stacked {
+  min-width: 175px;
+  background: #9e0039;
+  border-radius: 0px;
+  border-color: #9e0039;
+  color: white;
+}
+
+.nav>li>a {
+  color: white;
+}
+
+.nav>li>a:hover {
+  text-decoration: none;
+  color: #9d9d9d;
+}

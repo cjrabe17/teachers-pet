@@ -24,11 +24,11 @@ const authCheck = jwt({
         rateLimit: true,
         jwksRequestsPerMinute: 5,
         // YOUR-AUTH0-DOMAIN name e.g prosper.auth0.com
-        jwksUri: "https://bootcampproject3.auth0.com/.well-known/jwks.json"
+        jwksUri: "https://teacherspet.auth0.com/.well-known/jwks.json"
     }),
     // This is the identifier we set when we created the API
     audience: 'localhost:3001',
-    issuer: 'https://bootcampproject3.auth0.com/',
+    issuer: 'https://teacherspet.auth0.com/',
     algorithms: ['RS256']
 });
 

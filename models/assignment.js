@@ -10,11 +10,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: new Date()
     },
-    assignmentType: {
-      type: DataTypes.ENUM("Classwork", "Homework", "Test", "Project"),
-      allowNull: false,
-      defaultValue: "Classwork"
-    },
     assignmentName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,7 +17,17 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    studentScore: {
+    assignmentType: {
+      type: DataTypes.ENUM("Classwork", "Homework", "Test", "Project"),
+      allowNull: false,
+      defaultValue: "Classwork"
+    },
+    possiblePts: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      default: 100
+    },
+    extraCredit: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
@@ -33,15 +38,6 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isDate: true
       }
-    },
-    possiblePts: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      default: 100
-    },
-    extraCredit: {
-      type: DataTypes.INTEGER,
-      allowNull: true
     }
   });
 

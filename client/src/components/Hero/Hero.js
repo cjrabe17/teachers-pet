@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { Jumbotron, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import "./Hero.css";
 
 export default class Hero extends Component {
+  login = () => {
+    console.log("Logging in");
+    this.props.auth.login();
+  }
+  
   render() {
     return (
       <Jumbotron className="text-center">
@@ -11,10 +15,9 @@ export default class Hero extends Component {
         <h3>A centralized K-12 classroom management solution.</h3>
         <Button
           bsSize="large"
+          onClick={this.login}
         >
-          <Link to="/signup">
-            Register Now!
-          </Link>
+          Register Now!
         </Button>
       </Jumbotron>
     );

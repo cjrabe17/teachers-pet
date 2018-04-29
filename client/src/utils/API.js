@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   // Gets all assignments
   getAssignments: function() {
-    return axios.get("/api/assignments");
+    return axios.get("/api/assignments/");
   },
   // Gets the assignment with the given id
   getAssignment: function(id) {
@@ -14,7 +14,7 @@ export default {
     return axios.delete("/api/assignments/" + id);
   },
   // Saves a assignment to the database
-  saveAssignment: function(bookData) {
+  saveAssignment: function(assignmentData) {
     return axios.post("/api/assignments", assignmentData);
   }
 };

@@ -3,6 +3,7 @@ import TopNav from '../TopNav';
 import GradeDetail from '../GradeDetail';
 import Logo from '../Logo';
 import Hero from '../Hero';
+import LeftNav from '../LeftNav';
 
 class Home extends Component {
   // calls the login method in authentication service
@@ -23,6 +24,7 @@ class Home extends Component {
           isAuthenticated() &&
           <div>
             <TopNav {...myProps} />
+            <LeftNav />
             <GradeDetail />
             <Logo />
           </div>
@@ -31,7 +33,7 @@ class Home extends Component {
           !isAuthenticated() && (
             <div>
               <TopNav {...myProps}/>
-              <Hero />
+              <Hero {...myProps}/>
               <Logo />
             </div>
           )

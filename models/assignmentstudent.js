@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: new Date()
     },
-    score: {
+    studentScore: {
       type: DataTypes.INTEGER
     }
   });
