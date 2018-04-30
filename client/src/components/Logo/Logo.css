@@ -1,5 +1,6 @@
 .logoImg {
-  position: fixed;
-  right: 0;
-  bottom: 0;
+  position: absolute;
+  right: 0px;
+  bottom: 5px;
+  max-height: 200px;
 }

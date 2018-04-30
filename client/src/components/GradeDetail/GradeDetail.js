@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Table, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import "./GradeDetail.css";
 
 class GradeDetail extends Component {
@@ -11,8 +11,8 @@ class GradeDetail extends Component {
     this.handleClose = this.handleClose.bind(this);
 
     this.state = {
-      show: false,
       assignments: [],
+      students: [],
       assignmentName: "",
       assignmentType: "",
       possiblePts: "",
@@ -31,48 +31,55 @@ class GradeDetail extends Component {
 
   componentDidMount() {
     this.loadGradebook();
+    this.loadStudents();
   }
 
   loadGradebook = () => {
     API.getAssignments()
       .then(res =>
-        this.setState({ assignments: res.data, assignmentName: "" })
+        this.setState({ assignments: res.data, assignmentName: "", assignmentType: "", possiblePts: "", extraCredit: "", dueDate: ""})
       )
       .catch(err => console.log(err));
   };
+
+  loadStudents = () => {
+    API.getStudents()
+      .then(res =>
+        this.setState({ students: res.data, name: "", dateOfBirth: ""})
+      )
+      .catch(err => console.log(err));
+  }
 
   render() {
     return (
       <div className="container column">
         {this.state.assignments.length ? (
           <Table bordered condensed hover>
-            <thead>
-              <tr>
-                <th>Assignment Name</th>
-                <th>Assignment Type</th>
-                <th>Possible Points</th>
-                <th>Extra Credit</th>
-                <th>Due Date</th>
-              </tr>
-            </thead>
             {this.state.assignments.map(assignment => (
-                <tbody>
-                  <tr>
-                    <td>{assignment.assignmentName}</td>
-                    <td>{assignment.assignmentType}</td>
-                    <td>{assignment.possiblePts}</td>
-                    <td>{assignment.extraCredit}</td>
-                    <td>{assignment.dueDate}</td>
-                  </tr>
-                </tbody>
+              <thead>
+                <tr>
+                  <th>{assignment.assignmentName}</th>
+                </tr>
+              </thead>
             ))}
           </Table>
         ) : (
-          <h4>No grades to display yet.</h4>
+          <h3>No Results to Display</h3>
         )}
-        <Button bsStyle="primary" bsSize="med" onClick={this.handleShow}>
-          Add New Assignment
-        </Button>
+        {this.state.students.length ? (
+          <Table bordered condensed hover>
+            {this.state.students.map(student => (
+              <thead>
+                <tr>
+                  <th>{student.name}</th>
+                  <th>{student.dateOfBirth}</th>
+                </tr>
+              </thead>
+            ))}
+          </Table>
+        ) : (
+          <h3>No Results to Display</h3>
+        )}
       </div>
     );
   }

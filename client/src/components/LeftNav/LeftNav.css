@@ -1,9 +1,17 @@
+.leftNavContainer {
+  position: absolute;
+  height: 100%;
+}
+
 .nav-stacked {
   min-width: 175px;
+  margin-right: 20px;
   background: #9e0039;
   border-radius: 0px;
   border-color: #9e0039;
   color: white;
+  position: absolute;
+  height: 100%;
 }
 
 .nav>li>a {
@@ -13,4 +21,12 @@
 .nav>li>a:hover {
   text-decoration: none;
   color: #9d9d9d;
+}
+
+.sidebarLogo {
+  max-width: 170px;
+  transform: scaleX(-1);
+  position: fixed;
+  left: 0px;
+  bottom: 5px;
 }

@@ -16,5 +16,8 @@ export default {
   // Saves a assignment to the database
   saveAssignment: function(assignmentData) {
     return axios.post("/api/assignments", assignmentData);
+  },
+  getStudents: function() {
+    return axios.get("/api/students/");
   }
 };

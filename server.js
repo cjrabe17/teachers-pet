@@ -20,16 +20,14 @@ app.use(routes);
 
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        // YOUR-AUTH0-DOMAIN name e.g prosper.auth0.com
-        jwksUri: "https://teacherspet.auth0.com/.well-known/jwks.json"
-    }),
-    // This is the identifier we set when we created the API
-    audience: 'localhost:3001',
-    issuer: 'https://teacherspet.auth0.com/',
-    algorithms: ['RS256']
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: "https://teacherspet.auth0.com/.well-known/jwks.json"
+  }),
+  audience: 'localhost:3001',
+  issuer: 'https://teacherspet.auth0.com/',
+  algorithms: ['RS256']
 });
 
 // Start the API server
