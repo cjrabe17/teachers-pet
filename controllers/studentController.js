@@ -3,8 +3,7 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.Student
-      .findAll(req.query)
-      // .sort({ name: -1 })
+      .findAll({ include: [db.Assignment] })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

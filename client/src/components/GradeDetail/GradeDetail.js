@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import API from "../../utils/API";
 import { Table, Image } from "react-bootstrap";
 import "./GradeDetail.css";
@@ -44,22 +44,36 @@ class GradeDetail extends Component {
 
   loadStudents = () => {
     API.getStudents()
-      .then(res =>
-        this.setState({ students: res.data, name: "", dateOfBirth: ""})
+      .then(res => {
+        console.log(res.data);
+        this.setState({ students: res.data, name: ""})
+      }
       )
       .catch(err => console.log(err));
   }
 
   render() {
     return (
-      <div className="container grade-detail">
+      <div className="container">
         {this.state.assignments.length ? (
           <Table bordered condensed hover>
-            {this.state.assignments.map(assignment => (
-              <thead>
-                  <th>{assignment.assignmentName}</th>
-              </thead>
-            ))}
+            <thead>
+              <th></th>
+              {this.state.assignments.map(assignment => (  
+                    <th>{assignment.assignmentName}</th>
+              ))}
+            </thead>
+            <tbody>
+              {this.state.students.map(student => (
+                <tr>
+                  <td>{student.name}</td>
+                  {student.Assignments.map(assignment => (
+                    <td>{assignment.AssignmentStudent.studentScore}</td>
+                  ))}
+                </tr>
+
+              ))}
+            </tbody>
           </Table>
         ) : (
           <h3>No Results to Display</h3>
