@@ -7,7 +7,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'teacherspet.auth0.com',
     clientID: 'D4GSbrzuaXZeS313s6hVT7AyREee3IVK',
-    redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'https://url.com/callback',
+    redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'https://evening-mountain-18475.herokuapp.com/callback',
     audience: 'https://teacherspet.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
