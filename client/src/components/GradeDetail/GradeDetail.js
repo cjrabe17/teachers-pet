@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Table } from "react-bootstrap";
+import { Table, Image } from "react-bootstrap";
 import "./GradeDetail.css";
 
 class GradeDetail extends Component {
@@ -52,28 +52,12 @@ class GradeDetail extends Component {
 
   render() {
     return (
-      <div className="container column">
+      <div className="container grade-detail">
         {this.state.assignments.length ? (
           <Table bordered condensed hover>
             {this.state.assignments.map(assignment => (
               <thead>
-                <tr>
                   <th>{assignment.assignmentName}</th>
-                </tr>
-              </thead>
-            ))}
-          </Table>
-        ) : (
-          <h3>No Results to Display</h3>
-        )}
-        {this.state.students.length ? (
-          <Table bordered condensed hover>
-            {this.state.students.map(student => (
-              <thead>
-                <tr>
-                  <th>{student.name}</th>
-                  <th>{student.dateOfBirth}</th>
-                </tr>
               </thead>
             ))}
           </Table>
