@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TopNav from '../TopNav';
 import GradeDetail from '../GradeDetail';
-import Test from '../Test';
+import GradeTest from '../GradeTest';
 import Hero from '../Hero';
 import Footer from '../Footer';
 
