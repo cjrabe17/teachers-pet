@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: new Date()
     },
     studentScore: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      defaultValue: null
     }
   });
   return AssignmentStudent;

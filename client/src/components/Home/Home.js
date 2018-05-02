@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TopNav from '../TopNav';
 import GradeDetail from '../GradeDetail';
+import Test from '../Test';
 import Hero from '../Hero';
 import Footer from '../Footer';
 
@@ -16,13 +17,12 @@ class Home extends Component {
   render() {
     // calls the isAuthenticated method in authentication service
     const { isAuthenticated } = this.props.auth;
-    const myProps = this.props;
     return (
       <div>
         {
           isAuthenticated() &&
           <div>
-            <TopNav {...myProps} />
+            <TopNav {...this.props} />
             <GradeDetail />
             <Footer />
           </div>
@@ -30,8 +30,8 @@ class Home extends Component {
         {
           !isAuthenticated() && (
             <div>
-              <TopNav {...myProps}/>
-              <Hero {...myProps}/>
+              <TopNav {...this.props}/>
+              <Hero {...this.props}/>
               <Footer />
             </div>
           )

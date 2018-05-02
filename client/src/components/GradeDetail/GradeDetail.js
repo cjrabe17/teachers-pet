@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import API from "../../utils/API";
-import { Table, Image } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import "./GradeDetail.css";
 
 class GradeDetail extends Component {
@@ -45,16 +45,14 @@ class GradeDetail extends Component {
   loadStudents = () => {
     API.getStudents()
       .then(res => {
-        console.log(res.data);
         this.setState({ students: res.data, name: ""})
-      }
-      )
+      })
       .catch(err => console.log(err));
   }
 
   render() {
     return (
-      <div className="container">
+      <div className="container grade-detail">
         {this.state.assignments.length ? (
           <Table bordered condensed hover>
             <thead>
@@ -71,7 +69,6 @@ class GradeDetail extends Component {
                     <td>{assignment.AssignmentStudent.studentScore}</td>
                   ))}
                 </tr>
-
               ))}
             </tbody>
           </Table>
