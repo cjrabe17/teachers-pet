@@ -1,8 +1,9 @@
 .jumbotron {
-  height: 100%;
+  margin: 0;
   background: url("/assets/img/jumbotronbg.jpg");
   background-size: cover;
   color: white;
+  height: 100%
 }
 
 .jumbotron>.container>h1 {

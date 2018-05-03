@@ -4,7 +4,6 @@ module.exports = {
   findAll: function(req, res) {
     db.Assignment
       .findAll(req.query)
-      // .sort({ dueDate: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -33,9 +32,13 @@ module.exports = {
   },
   remove: function(req, res) {
     db.Assignment
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(dbModel) {
+        res.json(dbModel);
+      });
   }
 };

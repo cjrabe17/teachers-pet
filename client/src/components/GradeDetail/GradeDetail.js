@@ -37,6 +37,14 @@ class GradeDetail extends Component {
       .catch(err => console.log(err));
   }
 
+  handleDelete = () => {
+    API.remove()
+      .then(res => {
+        console.log("deleting");
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="container grade-detail">
@@ -46,7 +54,7 @@ class GradeDetail extends Component {
               <tr>
                 <th><AddAssignmentForm /></th>
                 {this.state.assignments.map(assignment => (  
-                  <th key={assignment.id}>{assignment.assignmentName}  <DeleteBtn /></th>
+                  <th key={assignment.id}>{assignment.assignmentName}  <DeleteBtn onClick={this.handleDelete}/></th>
                 ))}
               </tr>
             </thead>

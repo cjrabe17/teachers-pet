@@ -1,3 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+.main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 30px;
+}
+
 h1, h2, h3, h4, h5, h6, h7, p, a, .btn, .table, footer, label, input, option, select {
   font-family: 'Zilla Slab', serif;
 }
