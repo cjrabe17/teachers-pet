@@ -77,10 +77,10 @@ class TopNav extends Component {
                   noCaret
                   id="language-switcher-container"
                 >
-                  <MenuItem eventKey={1.1}>Gradebook</MenuItem>
-                  <MenuItem eventKey={1.2}>Attendance</MenuItem>
-                  <MenuItem eventKey={1.3}>Behavior</MenuItem>
-                  <MenuItem eventKey={1.4}>Students</MenuItem>
+                  <MenuItem eventKey={1.1} href="/gradebook">Gradebook</MenuItem>
+                  <MenuItem eventKey={1.2} href="/attendance">Attendance</MenuItem>
+                  <MenuItem eventKey={1.3} href="/behavior">Behavior</MenuItem>
+                  <MenuItem eventKey={1.4} href="/students">Students</MenuItem>
                 </NavDropdown>
               </Nav>
               <Nav pullRight>

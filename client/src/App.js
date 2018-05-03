@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import About from "./components/About";
-import Pricing from "./components/Pricing";
-import Contact from "./components/Contact";
-import Profile from "./components/Profile";
+import Home from './pages/Home';
+import About from "./pages/About";
+import Pricing from "./pages/Pricing";
+import Contact from "./pages/Contact";
+import Profile from "./pages/Profile";
 import NoMatch from './components/NoMatch';
 import Callback from './components/Callback';
 import Auth from './components/auth';

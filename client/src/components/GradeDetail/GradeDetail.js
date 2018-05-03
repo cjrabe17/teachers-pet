@@ -46,14 +46,14 @@ class GradeDetail extends Component {
               <tr>
                 <th><AddAssignmentForm /></th>
                 {this.state.assignments.map(assignment => (  
-                  <th>{assignment.assignmentName}  <DeleteBtn /></th>
+                  <th key={assignment.id}>{assignment.assignmentName}  <DeleteBtn /></th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {this.state.students.map(student => (
                 <tr>
-                  <td>{student.name}</td>
+                  <td key={student.id}>{student.name}</td>
                   {student.Assignments.map(assignment => (
                     <td>{assignment.AssignmentStudent.studentScore}</td>
                   ))}
