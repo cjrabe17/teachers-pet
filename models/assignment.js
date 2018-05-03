@@ -46,10 +46,6 @@ module.exports = function(sequelize, DataTypes) {
       through: "AssignmentStudent"
       }
     );
-    // models.Assignment.belongsToMany(models.Period, {
-    //   through: "AssignmentPeriod"
-    //   }
-    // );
   };
   return Assignment;
 }

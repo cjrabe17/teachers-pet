@@ -49,7 +49,7 @@ class AddAssignmentForm extends Component {
           bsStyle="info"
           onClick={this.handleShow}
         >
-          <Glyphicon glyph="plus" />
+          Add Assignment <Glyphicon glyph="plus" />
         </Button>
 
         <Modal show={this.state.show} onHide={this.handleClose}>

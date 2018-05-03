@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import NoMatch from './components/NoMatch';
 import Callback from './components/Callback';
+import GradeDetail from "./components/GradeDetail";
 import Auth from './components/auth';
 import history from './components/history';
 

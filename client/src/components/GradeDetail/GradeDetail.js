@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Glyphicon } from "react-bootstrap";
 import "./GradeDetail.css";
 import AddAssignmentForm from "../AddAssignmentForm";
 import DeleteBtn from "../DeleteBtn";
@@ -8,8 +8,6 @@ import API from "../../utils/API";
 class GradeDetail extends Component {
   constructor(props, context) {
     super(props, context);
-
-    this.handleDelete = this.handleDelete.bind(this);
 
     this.state = {
       show: false,
@@ -39,9 +37,9 @@ class GradeDetail extends Component {
       .catch(err => console.log(err));
   }
 
-  handleDelete = () => {
-    console.log("deleting");
-    API.deleteAssignment()
+  handleDelete = (id) => {
+    console.log("deleting" + id);
+    API.deleteAssignment(id)
       .then(res => {
         this.setState({ assignments: res.data })
       })
@@ -59,6 +57,7 @@ class GradeDetail extends Component {
                 {this.state.assignments.map(assignment => (  
                   <th>{assignment.assignmentName} <DeleteBtn key={assignment.id} id={assignment.id} onClick={this.handleDelete} /></th>
                 ))}
+                {/* <th>Grade <Glyphicon glyph="apple" /></th> */}
               </tr>
             </thead>
             <tbody>
