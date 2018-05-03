@@ -1,58 +1,100 @@
 import React, { Component } from "react";
-import { FormControl, FormGroup, Modal, Button } from "react-bootstrap";
+import { FormControl, FormGroup, Modal, Button, ControlLabel, Glyphicon } from "react-bootstrap";
 
 class AddAssignmentForm extends Component {
   constructor(props, context) {
     super(props, context);
 
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
+      show: false,
       value: ""
     };
   }
 
-  getValidationState() {
-    const length = this.state.value.length;
-    if (length > 10) return "success";
-    else if (length > 5) return "warning";
-    else if (length > 0) return "error";
-    return null;
+  handleClose() {
+    this.setState({ show: false });
   }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
+  handleShow() {
+    this.setState({ show: true });
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log("Assignment name: " + this.state.value);
+    this.handleClose();
   }
 
   render() {
     return (
-      <div className="static-modal">
-        <Modal.Dialog>
-          <Modal.Header>
-            <Modal.Title>Add Assignment</Modal.Title>
-          </Modal.Header>
+      <div>
+        <Button
+          bsStyle="info"
+          onClick={this.handleShow}
+        >
+          <Glyphicon glyph="plus" />
+        </Button>
 
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header>
+            <Modal.Title>Add a New Assignment</Modal.Title>
+          </Modal.Header>
           <Modal.Body>
             <form>
-              <FormGroup
-                controlId="formBasicText"
-                validationState={this.getValidationState()}  
-              >
-                <FormControl
+              <FormGroup>
+                <ControlLabel>Assignment Name</ControlLabel>
+                <FormControl 
                   type="text"
                   value={this.state.value}
-                  placeholder="Enter text here"
                   onChange={this.handleChange}
+                />
+                <ControlLabel>Assignment Type</ControlLabel>
+                <FormControl
+                  componentClass="select"
+                  value={this.state.assignmentType}
+                  onChange={this.handleChange}
+                >
+                  <option value="Classwork">Classwork</option>
+                  <option value="Homework">Homework</option>
+                  <option value="Test">Test</option>
+                  <option value="Project">Project</option>
+                </FormControl>
+                <ControlLabel>Points Possible</ControlLabel>
+                <FormControl 
+                  type="text"
+                  value={this.state.possiblePts}
+                  onChange={this.handleChange}                  
+                />
+                <ControlLabel>Extra Credit</ControlLabel>
+                <FormControl 
+                  type="text"
+                  value={this.state.extraCredit}
+                  onChange={this.handleChange}                  
+                />
+                <ControlLabel>Due Date</ControlLabel>
+                <FormControl 
+                  type="text"
+                  value={this.state.dueDate}
+                  placeholder="2018-05-03"
+                  onChange={this.handleChange}                  
                 />
               </FormGroup>
             </form>
           </Modal.Body>
-
           <Modal.Footer>
-            <Button>Cancel</Button>
-            <Button bsStyle="primary">Save</Button>
+            <Button onClick={this.handleSubmit}>Save</Button>
+            <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
-        </Modal.Dialog>
+        </Modal>
       </div>
     );
   }
