@@ -1,20 +1,22 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
 import { Table } from "react-bootstrap";
 import "./GradeDetail.css";
 import AddAssignmentForm from "../AddAssignmentForm";
 import DeleteBtn from "../DeleteBtn";
+import API from "../../utils/API";
 
 class GradeDetail extends Component {
-  state = {
-    assignments: [],
-    students: [],
-    assignmentName: "",
-    assignmentType: "",
-    possiblePts: "",
-    extraCredit: "",
-    dueDate: ""
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleDelete = this.handleDelete.bind(this);
+
+    this.state = {
+      show: false,
+      assignments: [],
+      students: []
     };
+  }
 
   componentDidMount() {
     this.loadGradebook();
@@ -24,7 +26,7 @@ class GradeDetail extends Component {
   loadGradebook = () => {
     API.getAssignments()
       .then(res =>
-        this.setState({ assignments: res.data, assignmentName: "", assignmentType: "", possiblePts: "", extraCredit: "", dueDate: ""})
+        this.setState({ assignments: res.data })
       )
       .catch(err => console.log(err));
   };
@@ -38,9 +40,10 @@ class GradeDetail extends Component {
   }
 
   handleDelete = () => {
-    API.remove()
+    console.log("deleting");
+    API.deleteAssignment()
       .then(res => {
-        console.log("deleting");
+        this.setState({ assignments: res.data })
       })
       .catch(err => console.log(err));
   }
@@ -54,7 +57,7 @@ class GradeDetail extends Component {
               <tr>
                 <th><AddAssignmentForm /></th>
                 {this.state.assignments.map(assignment => (  
-                  <th key={assignment.id}>{assignment.assignmentName}  <DeleteBtn onClick={this.handleDelete}/></th>
+                  <th>{assignment.assignmentName} <DeleteBtn key={assignment.id} id={assignment.id} onClick={this.handleDelete} /></th>
                 ))}
               </tr>
             </thead>
@@ -63,7 +66,7 @@ class GradeDetail extends Component {
                 <tr>
                   <td key={student.id}>{student.name}</td>
                   {student.Assignments.map(assignment => (
-                    <td>{assignment.AssignmentStudent.studentScore}</td>
+                    <td key={student.AssignmentStudent}>{assignment.AssignmentStudent.studentScore}</td>
                   ))}
                 </tr>
               ))}

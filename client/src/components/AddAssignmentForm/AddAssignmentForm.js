@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FormControl, FormGroup, Modal, Button, ControlLabel, Glyphicon } from "react-bootstrap";
+import API from "../../utils/API";
 
 class AddAssignmentForm extends Component {
   constructor(props, context) {
@@ -7,12 +8,17 @@ class AddAssignmentForm extends Component {
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
       show: false,
-      value: ""
+      assignment: {
+        assignmentName: "",
+        assignmentType: "",
+        possiblePts: "",
+        extraCredit: "",
+        dueDate: ""
+      }
     };
   }
 
@@ -24,13 +30,15 @@ class AddAssignmentForm extends Component {
     this.setState({ show: true });
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleChange(propertyName, event) {
+    const assignment = this.state.assignment;
+    assignment[propertyName] = event.target.value;
+    this.setState({ assignment: assignment });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("Assignment name: " + this.state.value);
+    API.saveAssignment(this.state.assignment);
     this.handleClose();
   }
 
@@ -55,13 +63,13 @@ class AddAssignmentForm extends Component {
                 <FormControl 
                   type="text"
                   value={this.state.value}
-                  onChange={this.handleChange}
+                  onChange={this.handleChange.bind(this, 'assignmentName')}
                 />
                 <ControlLabel>Assignment Type</ControlLabel>
                 <FormControl
                   componentClass="select"
                   value={this.state.assignmentType}
-                  onChange={this.handleChange}
+                  onChange={this.handleChange.bind(this, 'assignmentType')}
                 >
                   <option value="Classwork">Classwork</option>
                   <option value="Homework">Homework</option>
@@ -72,20 +80,20 @@ class AddAssignmentForm extends Component {
                 <FormControl 
                   type="text"
                   value={this.state.possiblePts}
-                  onChange={this.handleChange}                  
+                  onChange={this.handleChange.bind(this, 'possiblePts')}
                 />
                 <ControlLabel>Extra Credit</ControlLabel>
                 <FormControl 
                   type="text"
                   value={this.state.extraCredit}
-                  onChange={this.handleChange}                  
+                  onChange={this.handleChange.bind(this, 'extraCredit')}
                 />
                 <ControlLabel>Due Date</ControlLabel>
                 <FormControl 
                   type="text"
+                  placeholder="YYYY-MM-DD"
                   value={this.state.dueDate}
-                  placeholder="2018-05-03"
-                  onChange={this.handleChange}                  
+                  onChange={this.handleChange.bind(this, 'dueDate')}
                 />
               </FormGroup>
             </form>
