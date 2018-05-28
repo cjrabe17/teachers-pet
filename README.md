@@ -1,6 +1,6 @@
 # Teacher's Pet
 
-![logo] (https://raw.githubusercontent.com/cjrabe17/teachers-pet/blob/master/client/build/assets/img/logo.png)
+![Logo](https://evening-mountain-18475.herokuapp.com/assets/img/logo.png)
 
 Teacher's Pet is a centralized K-12 classroom management solution. It was built for teachers by a teacher. Use it to maintain grade and attendance records, track behavior, and more!
 
