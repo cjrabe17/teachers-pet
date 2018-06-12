@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TopNav from '../../components/TopNav';
 import GradeDetail from '../../components/GradeDetail';
-// import Dashboard from '../Dashboard';
+import TableTest from '../../components/TableTest';
 import Hero from '../../components/Hero';
 import Footer from '../../components/Footer';
 
@@ -24,7 +24,6 @@ class Home extends Component {
           <div>
             <TopNav {...this.props} />
             <GradeDetail />
-            {/* <Dashboard /> */}
             <Footer />
           </div>
         }

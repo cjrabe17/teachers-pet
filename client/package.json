@@ -6,13 +6,15 @@
   "dependencies": {
     "auth0-js": "^9.5.0",
     "axios": "^0.16.2",
+    "namor": "^1.0.1",
     "react": "^16.0.0",
     "react-bootstrap": "^0.32.1",
     "react-datepicker": "^1.4.1",
+    "react-day-picker": "^7.1.9",
     "react-dom": "^16.3.2",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.14",
-    "react-table": "^6.8.2"
+    "react-table": "^6.8.6"
   },
   "scripts": {
     "start": "react-scripts start",

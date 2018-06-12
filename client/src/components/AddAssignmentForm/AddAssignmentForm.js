@@ -24,6 +24,7 @@ class AddAssignmentForm extends Component {
 
   handleClose() {
     this.setState({ show: false });
+    // re-render the GradeDetail component
   }
 
   handleShow() {
@@ -39,6 +40,7 @@ class AddAssignmentForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     API.saveAssignment(this.state.assignment);
+    console.log(this.state.assignment);
     this.handleClose();
   }
 
@@ -59,24 +61,25 @@ class AddAssignmentForm extends Component {
           <Modal.Body>
             <form>
               <FormGroup>
-                <ControlLabel>Assignment Name</ControlLabel>
+                <ControlLabel>Assignment Name*</ControlLabel>
                 <FormControl 
                   type="text"
                   value={this.state.value}
                   onChange={this.handleChange.bind(this, 'assignmentName')}
                 />
-                <ControlLabel>Assignment Type</ControlLabel>
+                <ControlLabel>Assignment Type*</ControlLabel>
                 <FormControl
                   componentClass="select"
                   value={this.state.assignmentType}
                   onChange={this.handleChange.bind(this, 'assignmentType')}
                 >
+                  <option value=""></option>
                   <option value="Classwork">Classwork</option>
                   <option value="Homework">Homework</option>
                   <option value="Test">Test</option>
                   <option value="Project">Project</option>
                 </FormControl>
-                <ControlLabel>Points Possible</ControlLabel>
+                <ControlLabel>Points Possible*</ControlLabel>
                 <FormControl 
                   type="text"
                   value={this.state.possiblePts}
@@ -88,9 +91,9 @@ class AddAssignmentForm extends Component {
                   value={this.state.extraCredit}
                   onChange={this.handleChange.bind(this, 'extraCredit')}
                 />
-                <ControlLabel>Due Date</ControlLabel>
+                <ControlLabel>Due Date*</ControlLabel>
                 <FormControl 
-                  type="text"
+                  type="date"
                   placeholder="YYYY-MM-DD"
                   value={this.state.dueDate}
                   onChange={this.handleChange.bind(this, 'dueDate')}
