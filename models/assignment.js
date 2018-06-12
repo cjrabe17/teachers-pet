@@ -29,7 +29,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     extraCredit: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      defaultValue: 0
     },
     dueDate: {
       type: DataTypes.DATEONLY,
